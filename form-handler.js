@@ -1,36 +1,47 @@
 const form = document.getElementById('contactForm');
 
-//escuchando el evento Submit
 form.addEventListener('submit', function(event) {
-    //detengo el envío del formulario
-    event.preventDefault();
-    //Al usar event.preventDefault();
-    //detienes ese comportamiento automático, lo que te permite:
-    //Capturar los datos del formulario manualmente.
-    //enviarlos tú mismo
-    //Mostrar resultados sin recargar la página.
+  event.preventDefault();
+
+  const responseDiv = document.getElementById('response');
+  responseDiv.innerHTML = "";
+
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const telefono = form.telefono.value.trim();
+
+  const errors = [];
+
+  if (name === "") {
+    errors.push("El nombre es obligatorio.");
+  }
+
+  if (email === "" || !email.includes('@')) {
+    errors.push("Email inválido.");
+  }
+
+  const telRegex = /^\d{3}-\d{3}-\d{4}$/;
+  if (!telRegex.test(telefono)) {
+    errors.push("Teléfono inválido. Debe tener el formato 123-456-7890.");
+  }
+
+  if (errors.length > 0) {
+    responseDiv.innerHTML = errors.map(e => `<p>${e}</p>`).join('');
+    return;
+  }
 
   const formData = new FormData(form);
-    //FormData: se usa para recoger todos los
-    //de un formulario HTML y prepararlos para el envío
-    //con fetch
 
   fetch(form.action, {
     method: 'POST',
     body: formData
   })
-  //then que maneja la repuesta del servidor 
-  //después de enviar el formulario con fetch
-  //=>response.text() convierte la respuesta 
-  //servidor en texto plano
-  //.then(data=>{ recibe el texto procesado})
-  //Luego inserta ese texto dentro del 
-  //elemento con id response en el HTML
   .then(response => response.text())
   .then(data => {
-    document.getElementById('response').innerHTML = data;
+    responseDiv.innerHTML = data;
   })
   .catch(error => {
+    responseDiv.innerHTML = "<p>Hubo un error al enviar el formulario.</p>";
     console.error('Error:', error);
   });
 });
