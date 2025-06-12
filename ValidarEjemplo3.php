@@ -8,11 +8,13 @@
 <h2>Ejemplo de Validaciones</h2>
 <form id="contactForm" action="process.php" method="post">
     Name: <input type="text" name="name"><br><br>
-    Email: <input type="text" name="email"><br>
+    Email: <input type="text" name="email"><br><br>
+    Teléfono: <input type="text" name="telefono" placeholder="123-456-7890"><br><br>
     <input type="submit" name="submit" value="Submit">
 </form>
-<div id="response"></div>
-<!-- Coloca esto justo antes de cerrar </body> -->
+
+<div id="response" style="margin-top:10px; color:red;"></div>
+
 <script src="form-handler.js" defer></script>
 </body>
 </html>
