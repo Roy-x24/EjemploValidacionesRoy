@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Validaciones</title>
-    <script defer src="form-handler.js"></script>
+    <meta charset="UTF-8">
+    <title>Validaciones 2</title>
+    <link rel="stylesheet" href="style/estilo.css">
+    <script defer src="js/form-handler-basic.js"></script>
 </head>
 <body>
 
-<h2>Ejemplos de Validaciones</h2>
+<div class="container">
+    <h2>Validación Formulario 2</h2>
+    <div id="response"></div>
 
-<div id="errors" style="color:red;"></div>
-<div id="response" style="margin-top:10px;"></div>
+    <form id="contactForm" method="post" action="validate2.php">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name">
 
-<form id="contactForm" method="post" action="validate2.php">
-    Name: <input type="text" name="name"><br><br>
-    Email: <input type="text" name="email"><br><br>
-    Teléfono: <input type="text" name="telefono" placeholder="123-456-7890"><br><br>
-    <input type="submit" name="submit" value="Submit">
-</form>
+        <label for="email">Correo electrónico:</label>
+        <input type="text" id="email" name="email">
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" placeholder="123-456-7890">
+
+        <input type="submit" value="Enviar">
+    </form>
+</div>
 
 </body>
 </html>
