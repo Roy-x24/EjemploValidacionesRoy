@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;  /* Fondo general muy claro */
+    color: #2e3d32;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 440px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #f0f0f0;  /* ← Fondo del formulario (gris claro) */
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(46, 61, 50, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #3e8e41;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c4d1c3;
+    border-radius: 6px;
+    background-color: #fefefe;
+    font-size: 14px;
+    box-sizing: border-box;
+    color: #2e3d32;
+}
+
+input::placeholder {
+    color: #a4b0a6;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #3e8e41;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #2f6e32;
+}
+
+#response {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #c0392b;
+}
+
+#response.success {
+    color: #28a745;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
